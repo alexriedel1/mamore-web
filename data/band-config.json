@@ -1,0 +1,138 @@
+{
+  "band": {
+    "name": "Mamore",
+    "tagline": "we make noise and call it music",
+    "genre": "Post-Rock / Shoegaze",
+    "location": "Vienna, Austria",
+    "formed": "2021",
+    "memberCount": 4,
+    "soundsLike": "Mogwai, Slowdive, My Bloody Valentine",
+    "lastActive": "2026-03-26",
+    "mood": "mood: rockig",
+    "profilePhoto": "images/band/band.jpg",
+    "bio": "Mamore is a post-rock and shoegaze band from Vienna, Austria. Formed in 2021, we blend walls of guitar noise with delicate melodies and pounding rhythms. Our music lives somewhere between the crushing and the beautiful — loud passages that give way to fragile, shimmering quiet. We play small venues, basements, and anywhere people will have us. This is our corner of the internet.",
+    "influences": "Mogwai, Explosions in the Sky, Slowdive, My Bloody Valentine, Sigur Rós, Godspeed You! Black Emperor, Ride"
+  },
+
+
+  "tourDates": [
+    {
+      "date": "2026-04-08",
+      "venue": "SO36",
+      "city": "Berlin",
+      "ticketsUrl": "https://www.greyzone-tickets.de/produkte/1213",
+      "isSoldOut": false
+    },
+    {
+      "date": "2026-04-09",
+      "venue": "MS Stubnitz",
+      "city": "Hamburg",
+      "ticketsUrl": "https://stubnitz.stager.co/shop/default/events/111531971",
+      "isSoldOut": false
+    },
+    {
+      "date": "2026-04-10",
+      "venue": "Werk 2",
+      "city": "Leipzig",
+      "ticketsUrl": "https://www.tixforgigs.com/Event/70518",
+      "isSoldOut": false
+    },
+    {
+      "date": "2026-04-12",
+      "venue": "Faust",
+      "city": "Hannover",
+      "ticketsUrl": "https://www.tixforgigs.com/Event/70537",
+      "isSoldOut": false
+    },
+    {
+      "date": "2026-04-13",
+      "venue": "Ratinger Hof",
+      "city": "Düsseldorf",
+      "ticketsUrl": "https://www.eventim-light.com/de/a/58ad58a2ffb88904c6e2c300/e/6944ad8689cf6b6acbc8f737",
+      "isSoldOut": false
+    },
+    {
+      "date": "2026-04-15",
+      "venue": "Helene P.",
+      "city": "Stuttgart",
+      "ticketsUrl": "https://loveyourartist.com/de/profiles/clubcann-E5JR35/events/marmore-thema-liebe-stuttgart-25NVTH",
+      "isSoldOut": false
+    },
+    {
+      "date": "2026-04-16",
+      "venue": "Orange House",
+      "city": "München",
+      "ticketsUrl": "https://www.eventim.de/event/mamore-feierwerk-21114888/",
+      "isSoldOut": false
+    },
+    {
+      "date": "2026-04-17",
+      "venue": "Rhiz",
+      "city": "Wien",
+      "ticketsUrl": "https://ntry.at/mamore",
+      "isSoldOut": false
+    },
+    {
+      "date": "2026-04-18",
+      "venue": "Club Stereo",
+      "city": "Nürnberg",
+      "ticketsUrl": "https://www.ticketmaster.de/event/333347820",
+      "isSoldOut": false
+    }
+  ],
+
+  "shop": [
+    {
+      "label": "Bandcamp",
+      "url": "https://mamore.bandcamp.com",
+      "description": "Albums, EPs & digital downloads"
+    },
+    {
+      "label": "Merch Store",
+      "url": "https://mamore.bigcartel.com",
+      "description": "T-shirts, hoodies, posters"
+    },
+    {
+      "label": "Vinyl",
+      "url": "https://mamore.bandcamp.com/merch",
+      "description": "Limited edition records"
+    }
+  ],
+
+  "gallery": [
+    { "src": "images/band/IMG_9119 (1).JPG", "caption": "" },
+        { "src": "images/band/IMG_9262.JPG", "caption": "" },
+
+    { "src": "images/band/IMG_9824.JPG", "caption": "" },
+    { "src": "images/band/IMG_7744.JPG", "caption": "" },
+    { "src": "images/band/IMG_9293.JPG", "caption": "" },
+    { "src": "images/band/IMG_3611.JPG", "caption": "" },
+    { "src": "images/band/IMG_3377.JPG", "caption": "" },
+    { "src": "images/band/IMG_3458.JPG", "caption": "" },
+        { "src": "images/band/IMG_9265.JPG", "caption": "" }
+
+  ],
+
+  "friends": [
+    {
+      "name": "Kochkraft durch KMA",
+      "profileUrl": "https://www.kochkraft.band/",
+      "photo": "images/friends/kma.jpg"
+    },
+    {
+      "name": "Gwen Dolyn",
+      "profileUrl": "https://www.gwen-dolyn.com/",
+      "photo": "images/friends/gwen.jpg"
+    },
+    {
+      "name": "Siggi 5000",
+      "profileUrl": "https://www.sieger-musik.de/",
+      "photo": "images/friends/willi.jfif"
+    },
+    {
+      "name": "Salò",
+      "profileUrl": "https://de.wikipedia.org/wiki/Sal%C3%B2_(Musiker)",
+      "photo": "images/friends/salo.jpg"
+    }
+  ]
+}

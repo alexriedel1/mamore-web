@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mamore - Official Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="page-wrapper">
+
+    <!-- ═══ MAIN TWO-COLUMN LAYOUT ═══ -->
+    <div id="main-layout">
+
+      <!-- ─── LEFT COLUMN ─── -->
+      <div id="left-column">
+
+        <!-- Band Photo + Name + Status -->
+        <div class="profile-box" id="photo-box">
+          <div class="box-header" id="band-name-header">mamor&#233;</div>
+          <div id="photo-info-row">
+            <img id="band-main-photo" src="" alt="Mamore">
+            <div id="band-quick-info">
+              <div id="last-active-display">
+                <span class="info-label">Last active:</span>
+                <span id="last-active-minutes"></span>
+              </div>
+              <div id="band-status-display">
+                <span id="band-status-text"></span>
+              </div>
+              </div>
+          </div>
+          <div id="action-buttons">
+            <p class="box-header-social">come say hello :3</p>
+            <div id="social-grid">
+              <a class="social-link" href="https://www.instagram.com/mamore.rock/" target="_blank" rel="noopener"><span class="heart" style="color:#e1306c">♥</span> Instagram</a>
+              <a class="social-link" href="https://open.spotify.com/intl-de/artist/2a6Sq96x1AYBfPTFr9js17" target="_blank" rel="noopener"><span class="heart" style="color:#1db954">♥</span> Spotify</a>
+              <a class="social-link" href="https://www.youtube.com/channel/UCjvXZq4EVwyeAhmOkuCWhUA" target="_blank" rel="noopener"><span class="heart" style="color:#ff0000">♥</span> YouTube</a>
+              <a class="social-link" href="https://mamore.bandcamp.com/" target="_blank" rel="noopener"><span class="heart" style="color:#1da0c3">♥</span> Bandcamp</a>
+              <a class="social-link" href="https://www.tiktok.com/@mamore.rock" target="_blank" rel="noopener"><span class="heart" style="color:#ffffff">♥</span> TikTok</a>
+              <a class="social-link" href="https://t.me/mamorefans" target="_blank" rel="noopener"><span class="heart" style="color:#2aabee">♥</span> Telegram</a>
+            </div>
+            <img src="/images/gifs/stars.gif" alt="" style="max-width: 100%;">
+          </div>
+        </div>
+
+        <!-- Band Details 
+        <div class="profile-box" id="details-box">
+          <div class="box-header"> Mamore's Details </div>
+          <table class="details-table" id="details-table">
+          </table>
+        </div>-->
+
+        <!-- Shop / Merch -->
+        <div class="profile-box" id="shop-box">
+          <div class="box-header">Merch &amp; Shop</div>
+          <div id="merch-grid">
+            <!-- Populated by script.js -->
+          </div>
+        </div>
+
+        <!-- Friends -->
+        <div class="profile-box" id="friends-box">
+          <div class="box-header"> Mamore's Friends </div>
+          <p class="friends-count"><span id="friends-count-num">0</span> Friends</p>
+          <div id="friends-grid">
+            <!-- Populated by script.js -->
+          </div>
+        </div>
+
+      </div>
+      <!-- END LEFT COLUMN -->
+
+      <!-- ─── RIGHT COLUMN ─── -->
+      <div id="right-column">
+
+        
+
+        <!-- Tour Dates -->
+        <div class="profile-box" id="tour-box">
+          <div class="box-header tour-header">Tour Dates 2026</div>
+          <div id="tour-empty" class="empty-msg" style="display:none">No upcoming shows — check back soon!</div>
+          <table id="tour-table">
+            <thead>
+
+            </thead>
+            <tbody id="tour-tbody">
+              <!-- Populated by script.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- About / Bio -->
+        <div class="profile-box" id="about-box">
+          <div class="box-header">About</div>
+          <div id="about-gifs">
+            <img src="/images/gifs/hearts.gif" alt="">
+            <img src="/images/gifs/glob.gif" alt="">
+            <img src="/images/gifs/nyan_cat.gif" alt="">
+            
+            <img src="/images/gifs/top.webp" alt="">
+                      <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/2a6Sq96x1AYBfPTFr9js17?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+            <img src="/images/gifs/e42fd57bffcc7371f830a0d783becd5e38a5fc3c.gifv" alt="">
+            <img src="/images/gifs/60531cb1be6e8ab74f3dbfc1e3b9fb8c5d0a1974.gifv" alt="">
+            <img src="/images/gifs/9675dbd58adeb8b96fed34c34b5e4f2e6078d648.gifv" alt="">
+            <img src="/images/gifs/48c20dea9b18dc9490487f5de628b1d3d6310039.gifv" alt="">
+          </div>
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="profile-box" id="gallery-box">
+          <div class="box-header"> Photos </div>
+          <div id="photo-grid">
+            <!-- Populated by script.js -->
+          </div>
+        </div>
+
+        <!-- Comments -->
+        <div class="profile-box" id="comments-box">
+          <div class="box-header"> Comments </div>
+
+          <form id="comment-form">
+            <div class="form-row">
+              <input type="text" id="comment-name" placeholder="Your name" maxlength="50" required>
+            </div>
+            <div class="form-row">
+              <textarea id="comment-text" placeholder="Write a comment..." maxlength="1000" required></textarea>
+            </div>
+            <div class="form-row">
+              <button type="submit" class="btn-primary">Post Comment</button>
+              <span id="comment-status"></span>
+            </div>
+          </form>
+
+          <div id="comments-list">
+            <!-- Populated by script.js -->
+          </div>
+        </div>
+
+      </div>
+      <!-- END RIGHT COLUMN -->
+
+    </div>
+    <!-- END MAIN LAYOUT -->
+
+    <div id="page-footer">
+      <p>Mamore &nbsp;|&nbsp; <a href="/imprint.html">Imprint &amp; Privacy Policy</a></p>
+    </div>
+
+  </div>
+  <!-- END PAGE WRAPPER -->
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="hidden">
+    <div id="lightbox-backdrop"></div>
+    <div id="lightbox-inner">
+      <button id="lightbox-close">&times;</button>
+      <img id="lightbox-img" src="" alt="">
+      <p id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

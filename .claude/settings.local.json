@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:mamore.bandcamp.com)",
+      "WebFetch(domain:mamore.de)"
+    ]
+  }
+}
