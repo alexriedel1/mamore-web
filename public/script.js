@@ -188,7 +188,7 @@ function renderTourDates(dates) {
     } else if (show.isSoldOut) {
       ticketsCell = `<span class="badge-soldout">SOLD OUT</span>`;
     } else if (show.ticketsUrl) {
-      ticketsCell = `<a href="${show.ticketsUrl}" target="_blank" rel="noopener">Tickets &#8599;</a>`;
+      ticketsCell = `<a href="${show.ticketsUrl}" target="_blank" rel="noopener">Tickets &#x2197;&#xFE0E;</a>`;
     } else {
       ticketsCell = `<span style="color: var(--color-text-dim)">TBA</span>`;
     }

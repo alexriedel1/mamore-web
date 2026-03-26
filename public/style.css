@@ -36,7 +36,7 @@ body {
   background-repeat: repeat;
   background-attachment: fixed;
   color: var(--color-text);
-  font-family: 'ms ui gothic';
+  font-family: 'Courier New', monospace;
   font-size: 15px;
   line-height: 1.5;
 }
@@ -61,7 +61,7 @@ a:hover {
 
 /* ─── PHOTO BOX: NAME HEADER ─── */
 #band-name-header {
-  font-family: 'ms ui gothic';
+  font-family: monospace;
   font-size: 30px;
   font-weight: bold;
   letter-spacing: 2px;
@@ -141,7 +141,7 @@ a:hover {
   
   background: var(--bg-box-header);
   color: var(--color-text-dim);
-  font-family: 'ms ui gothic';
+  font-family: monospace;
   font-size: 13px;
   font-weight: 700;
   text-transform: none;
@@ -162,7 +162,7 @@ a:hover {
 }
 
 .tour-header {
-  font-family: 'ms ui gothic';
+  font-family: monospace;
   font-size: 17px;
   font-weight: 900;
   text-transform: none;
