@@ -133,6 +133,21 @@
       "name": "Salò",
       "profileUrl": "https://de.wikipedia.org/wiki/Sal%C3%B2_(Musiker)",
       "photo": "images/friends/salo.jpg"
+    },
+        {
+      "name": "dropped",
+      "profileUrl": "https://www.instagram.com/dropped.sth/",
+      "photo": "images/friends/dropped.jpg"
+    },
+    {
+      "name": "Flawless Issues",
+      "profileUrl": "https://www.instagram.com/flawlessissues777/",
+      "photo": "images/friends/flawless.jfif"
+    },
+    {
+      "name": "Larasüß",
+      "profileUrl": "https://www.instagram.com/suessmukke/",
+      "photo": "images/friends/lara.jpg"
     }
   ]
 }
