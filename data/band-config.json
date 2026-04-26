@@ -16,6 +16,53 @@
 
 
   "tourDates": [
+        {
+      "date": "2026-05-02",
+      "venue": "Uebel & Gefährlich (Support SALÓ)",
+      "city": "Hamburg",
+      "isSoldOut": false
+    },
+        {
+      "date": "2026-05-03",
+      "venue": "Tower (Support SALÓ)",
+      "city": "Bremen",
+      "isSoldOut": false
+    },
+        {
+      "date": "2026-06-06",
+      "venue": "Magdeburger Alleefest",
+      "city": "Erfurt",
+      "ticketsUrl": "",
+      "isSoldOut": false
+    },
+        {
+      "date": "2026-08-01",
+      "venue": "Weimarhallenpark (Support Alphaville)",
+      "city": "Weimar",
+      "ticketsUrl": "https://schallkultur.de/event/alphaville/",
+      "isSoldOut": false
+    },
+        {
+      "date": "2026-08-07",
+      "venue": "Pferdefest",
+      "city": "Piesport",
+      "ticketsUrl": "https://pferdefest.tickettoaster.de/produkte/86398-tickets-weekend-ticket-pferdefestival-piesport-am-07-08-2026",
+      "isSoldOut": false
+    },
+            {
+      "date": "2026-08-16",
+      "venue": "TBA",
+      "city": "Frankfurt/Oder",
+      "ticketsUrl": "",
+      "isSoldOut": false
+    },
+                {
+      "date": "2026-09-16",
+      "venue": "Jena",
+      "city": "Jena",
+      "ticketsUrl": "",
+      "isSoldOut": false
+    },
     {
       "date": "2026-04-08",
       "venue": "SO36",
@@ -100,11 +147,14 @@
   ],
 
   "gallery": [
+        { "src": "images/band/DSC05988 (1).JPG", "caption": "" },
+        { "src": "images/band/ratinger.JPG", "caption": "" },
     { "src": "images/band/IMG_9119 (1).JPG", "caption": "" },
         { "src": "images/band/IMG_9262.JPG", "caption": "" },
 
     { "src": "images/band/IMG_9824.JPG", "caption": "" },
     { "src": "images/band/IMG_7744.JPG", "caption": "" },
+    { "src": "images/band/DSC06212 (1).JPG", "caption": "" },
     { "src": "images/band/IMG_9293.JPG", "caption": "" },
     { "src": "images/band/IMG_3611.JPG", "caption": "" },
     { "src": "images/band/IMG_3377.JPG", "caption": "" },
@@ -128,6 +178,11 @@
       "name": "Siggi 5000",
       "profileUrl": "https://www.sieger-musik.de/",
       "photo": "images/friends/willi.jfif"
+    },
+        {
+      "name": "Future Franz",
+      "profileUrl": "https://www.futurefranz.de/",
+      "photo": "images/friends/franz.jpg"
     },
     {
       "name": "Salò",

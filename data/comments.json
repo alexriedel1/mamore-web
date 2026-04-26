@@ -4,5 +4,60 @@
     "name": "Alex",
     "text": "Hi",
     "timestamp": "2026-03-26T11:21:10.969Z"
+  },
+  {
+    "id": "7f302e95-b1eb-4a12-8b72-9c68225e7968",
+    "name": "HH",
+    "text": "hi\"}",
+    "timestamp": "2026-03-26T21:32:12.960Z"
+  },
+  {
+    "id": "55804723-5210-47a1-8a11-a70c8b51aef2",
+    "name": "fff",
+    "text": "hi\"\"}",
+    "timestamp": "2026-03-26T21:32:25.840Z"
+  },
+  {
+    "id": "80de5e82-16ca-4d67-a756-94d4ddb98336",
+    "name": "jj",
+    "text": "giu}",
+    "timestamp": "2026-03-26T21:32:35.167Z"
+  },
+  {
+    "id": "4a31c90a-0511-41de-ae3e-90e16341551f",
+    "name": "ff",
+    "text": "ff'}\"",
+    "timestamp": "2026-03-26T21:32:58.029Z"
+  },
+  {
+    "id": "48a1be35-466a-4aac-bb16-e929eaa2e910",
+    "name": "fff",
+    "text": "ff'}\"",
+    "timestamp": "2026-03-26T21:33:37.621Z"
+  },
+  {
+    "id": "0c0c63fc-3f6c-48e8-b3dd-d61afb20706a",
+    "name": "ööö",
+    "text": "ff'}\"``´´",
+    "timestamp": "2026-03-26T21:34:02.691Z"
+  },
+  {
+    "id": "25069033-862b-4c77-a3c0-24d004e661e8",
+    "name": "ddd",
+    "text": "\"Hello \\\"world\\\"\\nNew line",
+    "timestamp": "2026-03-26T21:36:06.597Z"
+  },
+  {
+    "id": "2e207383-2f26-406a-b71a-6c95d053be1e",
+    "name": "ddd",
+    "text": "&lt;img src=x onerror=alert(1)&gt;",
+    "timestamp": "2026-03-26T21:38:47.216Z"
+  },
+
+  {
+    "id": "b53988df-0803-4309-9fbd-56bfa4a69bf2",
+    "name": "ddd",
+    "text": "&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;",
+    "timestamp": "2026-03-26T21:40:04.671Z"
   }
 ]

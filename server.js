@@ -99,7 +99,7 @@ app.post('/api/comments', (req, res) => {
   if (!name || !text) {
     return res.status(400).json({ error: 'Name and text are required.' });
   }
-
+  console.log('Received comment submission:', { name, text });
   const cleanName = stripHTML(name.trim());
   const cleanText = stripHTML(text.trim());
 
