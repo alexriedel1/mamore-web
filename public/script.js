@@ -165,13 +165,22 @@ function renderTourDates(dates) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const sorted = [...dates].sort((a, b) => new Date(a.date) - new Date(b.date));
+  let sorted = [...dates].sort((a, b) => new Date(a.date) - new Date(b.date));
 
   if (sorted.length === 0) {
     if (emptyMsg) emptyMsg.style.display = 'block';
     if (table) table.style.display = 'none';
     return;
   }
+
+  for (let i = 0; i < sorted.length; i++) {
+    if (new Date(sorted[i].date + 'T00:00:00') < today) {
+      lastPastIndex = i;
+    }
+  }
+  const pastShows = sorted.slice(0, lastPastIndex + 1);
+  const upcomingShows = sorted.slice(lastPastIndex + 1);
+  sorted = [...upcomingShows, ...pastShows];
 
   tbody.innerHTML = sorted.map(show => {
     const showDate = new Date(show.date + 'T00:00:00');
