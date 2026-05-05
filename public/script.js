@@ -182,9 +182,8 @@ function renderTourDates(dates) {
   const upcomingShows = sorted.slice(lastPastIndex + 1);
   sorted = [...upcomingShows, ...pastShows];
 
-  tbody.innerHTML = sorted.map(show => {
+  tbody.innerHTML = upcomingShows.map(show => {
     const showDate = new Date(show.date + 'T00:00:00');
-    const isPast = showDate < today;
 
     const formattedDate = showDate.toLocaleDateString('en-US', {
       month: 'short',
@@ -192,9 +191,7 @@ function renderTourDates(dates) {
     });
 
     let ticketsCell;
-    if (isPast) {
-      ticketsCell = `<span class="badge-past">PAST</span>`;
-    } else if (show.isSoldOut) {
+    if (show.isSoldOut) {
       ticketsCell = `<span class="badge-soldout">SOLD OUT</span>`;
     } else if (show.ticketsUrl) {
       ticketsCell = `<a href="${show.ticketsUrl}" target="_blank" rel="noopener">Tickets&#x2197;&#xFE0E;</a>`;
@@ -203,7 +200,28 @@ function renderTourDates(dates) {
     }
 
     return `
-      <tr class="${isPast ? 'past-show' : ''}">
+      <tr class="">
+        <td class="tour-date-col">${formattedDate}</td>
+        <td>${show.city} – ${show.venue}</td>
+        <td>${ticketsCell}</td>
+      </tr>
+    `;
+  }).join('');
+  tbody.innerHTML += pastShows.length > 0 ? `<tr><td colspan="3" class="tour-divider"><a href="#" onclick="ShowHidePast(); return false">Vergangene Shows</a></td></tr>` : '';
+  tbody.innerHTML += pastShows.map(show => {
+    const showDate = new Date(show.date + 'T00:00:00');
+
+    const formattedDate = showDate.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric'
+    });
+
+    let ticketsCell;
+    ticketsCell = `<span class="badge-past">PAST</span>`;
+
+    return `
+    
+      <tr class="past-show" style="display: none;">
         <td class="tour-date-col">${formattedDate}</td>
         <td>${show.city} – ${show.venue}</td>
         <td>${ticketsCell}</td>
@@ -211,6 +229,18 @@ function renderTourDates(dates) {
     `;
   }).join('');
 }
+
+function ShowHidePast() {
+  const pastRows = document.querySelectorAll('.past-show');
+  pastRows.forEach(row => {
+    if (row.style.display === 'table-row') {
+      row.style.display = 'none';
+    } else {
+      row.style.display = 'table-row';
+    }
+  });
+}
+
 
 // ─── PHOTO GALLERY ───────────────────────────────────────
 
