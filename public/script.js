@@ -2,6 +2,61 @@
 //  Mamore Band Profile — Frontend Script
 // ═══════════════════════════════════════════════════════
 
+// Flying bats
+(function () {
+    const swarm = document.getElementById('batSwarm');
+    const BAT_GIF = 'https://media.tenor.com/fU-lYcf2_UQAAAAi/bat.gif';
+    const NUM_BATS = 8; // change how many bats you want
+
+    for (let i = 0; i < NUM_BATS; i++) {
+      const bat = document.createElement('img');
+      bat.src = BAT_GIF;
+      bat.className = 'bat';
+
+      // random size
+      const size = 30 + Math.random() * 50; // 30px–80px
+      bat.style.width = size + 'px';
+
+      swarm.appendChild(bat);
+      flyAcross(bat);
+    }
+
+    function flyAcross(bat) {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+
+      // random vertical start/end so the path drifts up or down
+      const startY = Math.random() * vh;
+      const endY = Math.random() * vh;
+      const duration = 6000 + Math.random() * 8000; // 6–14 sec
+      const fromLeft = Math.random() < 0.5;
+
+      const startX = fromLeft ? -100 : vw + 100;
+      const endX = fromLeft ? vw + 100 : -100;
+
+      // flip the bat to face its direction of travel
+      bat.style.transform =
+        `translate(${startX}px, ${startY}px) scaleX(${fromLeft ? 1 : -1})`;
+
+      const anim = bat.animate(
+        [
+          { transform: `translate(${startX}px, ${startY}px) scaleX(${fromLeft ? 1 : -1})` },
+          { transform: `translate(${endX}px, ${endY}px) scaleX(${fromLeft ? 1 : -1})` }
+        ],
+        { duration: duration, easing: 'ease-in-out' }
+      );
+
+      // when it finishes crossing, send it back with new random values
+      anim.onfinish = () => flyAcross(bat);
+    }
+  })();
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', async () => {
   // Load band config and render all sections
   try {
