@@ -823,6 +823,11 @@ a:hover {
   word-break: break-word;
 }
 
+.winky {
+  display: flex;
+  justify-content: center;
+}
+
 /* ─── FOOTER ─── */
 #page-footer {
   text-align: center;
