@@ -59,7 +59,7 @@ body {
 
 .top-right-gif {
   position: fixed;
-  height: 150px;
+  height: 120px;
   bottom: 20px;
   right: 20px;
   z-index: 999;
@@ -68,6 +68,8 @@ body {
 
 .top-right-gif:hover {
   opacity: 1;
+    pointer-events: none;
+
   
 }
 

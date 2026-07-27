@@ -482,3 +482,10 @@ function formatRelativeTime(isoString) {
 
   return then.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 }
+
+
+const gif = document.querySelector('.top-right-gif');
+window.addEventListener('scroll', () => {
+  const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 150;
+  gif.style.opacity = nearBottom ? '0' : '0.7';
+});
