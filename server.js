@@ -35,41 +35,114 @@ function writeJSON(filePath, data) {
 }
 
 
+const BANDCAMP_BASE = 'https://mamore.bandcamp.com';
+
+// Utility: decode the HTML entities Bandcamp uses to inline JSON into attributes.
+// &amp; is decoded last so "&amp;quot;" does not turn into a real quote.
+function decodeEntities(str) {
+  return str
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
+}
+
+// Utility: turn a scraped HTML fragment into plain single-line text.
+// Bandcamp pads grid titles with newlines and leaves entities encoded.
+function cleanText(str) {
+  return String(str)
+    .replace(/<[^>]+>/g, '')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&ndash;/g, '–')
+    .replace(/&mdash;/g, '—')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&#(\d+);/g, (_, code) => String.fromCodePoint(Number(code)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCodePoint(parseInt(code, 16)))
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// Utility: format a Bandcamp package price the way the merch grid renders it
+function formatPrice(price, currency) {
+  if (typeof price !== 'number') return '';
+  const amount = Number.isInteger(price) ? String(price) : price.toFixed(2);
+  const symbol = { EUR: '€', USD: '$', GBP: '£' }[currency];
+  return symbol ? `${symbol}${amount} ${currency}` : `${amount} ${currency}`;
+}
+
+// Parse the merch grid rendered when the band has more than one merch item.
+function parseMerchGrid(html) {
+  const items = [];
+  const itemRegex = /<li[^>]*class="[^"]*merch-grid-item[^"]*"[^>]*>([\s\S]*?)<\/li>/g;
+  let match;
+  while ((match = itemRegex.exec(html)) !== null) {
+    const block = match[1];
+    const urlMatch = block.match(/href="([^"]+)"/);
+    const imgMatch = block.match(/<img[^>]+src="([^"]+)"/);
+    const titleMatch = block.match(/<p[^>]*class="[^"]*title[^"]*"[^>]*>([\s\S]*?)<\/p>/);
+    const priceMatch = block.match(/<span[^>]*class="[^"]*price[^"]*"[^>]*>([\s\S]*?)<\/span>/);
+
+    if (urlMatch && titleMatch) {
+      const rawUrl = urlMatch[1];
+      items.push({
+        title: cleanText(titleMatch[1]),
+        price: priceMatch ? cleanText(priceMatch[1]) : '',
+        url: rawUrl.startsWith('http') ? rawUrl : `${BANDCAMP_BASE}${rawUrl}`,
+        img: imgMatch ? imgMatch[1].replace(/_\d+\./, '_16.') : null
+      });
+    }
+  }
+  return items;
+}
+
+// When the band has exactly one merch item, /merch redirects straight to that
+// item's release page, which has no merch grid. The packages live in the
+// data-tralbum JSON blob instead, so read them from there.
+function parseTralbumPackages(html) {
+  const blobMatch = html.match(/data-tralbum="([^"]*)"/);
+  if (!blobMatch) return [];
+
+  let tralbum;
+  try {
+    tralbum = JSON.parse(decodeEntities(blobMatch[1]));
+  } catch {
+    return [];
+  }
+
+  return (tralbum.packages || []).map(pkg => {
+    // Merch art ids are zero-padded to 10 digits; fall back to the album cover.
+    const artId = pkg.arts && pkg.arts.length ? pkg.arts[0].image_id : null;
+    const img = artId
+      ? `https://f4.bcbits.com/img/${String(artId).padStart(10, '0')}_16.jpg`
+      : pkg.album_art_id
+        ? `https://f4.bcbits.com/img/a${String(pkg.album_art_id).padStart(10, '0')}_16.jpg`
+        : null;
+
+    return {
+      title: cleanText(pkg.title),
+      price: formatPrice(pkg.price, pkg.currency),
+      url: pkg.url || tralbum.url || `${BANDCAMP_BASE}/merch`,
+      img
+    };
+  });
+}
+
 // GET /api/merch — scrape Bandcamp merch page and return items
 app.get('/api/merch', async (req, res) => {
   try {
-    const response = await fetch('https://mamore.bandcamp.com/merch', {
+    const response = await fetch(`${BANDCAMP_BASE}/merch`, {
       headers: { 'User-Agent': 'Mozilla/5.0 (compatible; band-profile/1.0)' },
       redirect: 'follow'
     });
     const html = await response.text();
 
-    // Bandcamp embeds all page data in a <script data-tralbum> or window.TralbumData,
-    // but merch listings are in a JSON blob inside data-band on the pagedata script.
-    // Extract the merch grid items from the HTML directly.
-    const items = [];
-    const itemRegex = /<li[^>]*class="[^"]*merch-grid-item[^"]*"[^>]*>([\s\S]*?)<\/li>/g;
-    let match;
-    while ((match = itemRegex.exec(html)) !== null) {
-      const block = match[1];
-
-      const urlMatch = block.match(/href="([^"]+)"/);
-      const imgMatch = block.match(/<img[^>]+src="([^"]+)"/);
-      const titleMatch = block.match(/<p[^>]*class="[^"]*title[^"]*"[^>]*>([\s\S]*?)<\/p>/);
-      const priceMatch = block.match(/<span[^>]*class="[^"]*price[^"]*"[^>]*>([\s\S]*?)<\/span>/);
-
-      if (urlMatch && titleMatch) {
-        const rawUrl = urlMatch[1];
-        const url = rawUrl.startsWith('http') ? rawUrl : `https://mamore.bandcamp.com${rawUrl}`;
-        const img = imgMatch ? imgMatch[1].replace(/_\d+\./, '_16.') : null;
-        items.push({
-          title: titleMatch[1].replace(/<[^>]+>/g, '').trim(),
-          price: priceMatch ? priceMatch[1].replace(/<[^>]+>/g, '').trim() : '',
-          url,
-          img
-        });
-      }
-    }
+    let items = parseMerchGrid(html);
+    if (items.length === 0) items = parseTralbumPackages(html);
 
     res.json(items);
   } catch (err) {

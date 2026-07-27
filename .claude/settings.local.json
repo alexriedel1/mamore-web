@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:mamore.bandcamp.com)",
-      "WebFetch(domain:mamore.de)"
+      "WebFetch(domain:mamore.de)",
+      "Bash(node -e ' *)",
+      "PowerShell($p = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty OwningProcess; if \\($p\\) { Write-Output \"killing PID $p\"; Stop-Process -Id $p -Force } else { Write-Output \"port 3000 free\" })",
+      "PowerShell($p = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty OwningProcess; if \\($p\\) { Stop-Process -Id $p -Force; Write-Output \"stopped test server \\(PID $p\\)\" })"
     ]
   }
 }
